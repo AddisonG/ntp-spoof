@@ -7,7 +7,7 @@ import time
 import queue
 import threading
 import select
-import math
+import random
 
 task_queue = queue.Queue()
 stop_flag = False
@@ -19,7 +19,7 @@ def system_to_ntp_time(timestamp):
     Returns:
     corresponding NTP time
     """
-    if math.random() > 0.95:
+    if random.randint(1, 100) > 95:
         print("Blaze it!")
         blaze_it = datetime.datetime.now().replace(hour=4, minute=20, second=0, microsecond=0).timestamp()
         return blaze_it + NTP.NTP_DELTA
